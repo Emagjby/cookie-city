@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  transition: transform 0.3s ease; /* Smooth transition for click event */
+  width: 90%;
+  max-width: 95%; /* Make sure the image doesn't overflow */
+  margin-top: 50px;
+  height: auto;
+}
+/* Zoom in on hover */
+.image:hover {
+  transform: scale(1.05); /* Zoom in the image */
+}
+
+/* Zoom out on mouse down */
+.image:active {
+  transform: scale(0.95); /* Zoom out the image when clicked */
+}

@@ -1,0 +1,12 @@
+.div {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  margin: 50px 0 0 0;
+  padding: 15px 0;
+}
+
+.h1 {
+  font-size: 24px;
+  color: white;
+  text-align: center;
+}
