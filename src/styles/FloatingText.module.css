@@ -2,7 +2,7 @@
   position: absolute;
   font-size: 2rem;
   color: #ffff; /* Tomato color */
-  animation: float-up 1.5s ease-out forwards;
+  animation: float-up 1s ease-out forwards;
   pointer-events: none; /* Allow clicks to pass through */
   transform: translate(-50%, -50%); /* Center the text at the cursor */
 }

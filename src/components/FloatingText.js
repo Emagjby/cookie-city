@@ -1,12 +1,20 @@
 import React, { useEffect } from 'react';
 import styles from '../styles/FloatingText.module.css';
 
-export const FloatingText = ({ value, x, y, onRemove, id }) => {
+export const FloatingText = ({
+  value,
+  x,
+  y,
+  onRemove,
+  id,
+  setFloatingTexts,
+}) => {
   useEffect(() => {
-    // Remove this text after 1.5 seconds
-    const timer = setTimeout(() => onRemove(id), 1500);
-    return () => clearTimeout(timer);
-  }, [id, onRemove]);
+    const timer = setTimeout(() => {
+      onRemove(id, setFloatingTexts); // Remove after 1 second
+    }, 1000);
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, [id, onRemove, setFloatingTexts]);
 
   return (
     <span
@@ -21,7 +29,15 @@ export const FloatingText = ({ value, x, y, onRemove, id }) => {
   );
 };
 
-export function PresentationalFloatingTexts({ floatingTexts, handleRemove }) {
+export function PresentationalFloatingTexts({
+  floatingTexts,
+  handleRemove,
+  setFloatingTexts,
+}) {
+  if (!Array.isArray(floatingTexts)) {
+    return <div>Error: floatingTexts is not an array!</div>;
+  }
+
   return (
     <>
       {floatingTexts.map(({ id, value, x, y }) => (
@@ -32,6 +48,7 @@ export function PresentationalFloatingTexts({ floatingTexts, handleRemove }) {
           x={x}
           y={y}
           onRemove={handleRemove}
+          setFloatingTexts={setFloatingTexts} // Pass down setFloatingTexts
         />
       ))}
     </>

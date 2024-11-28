@@ -10,6 +10,11 @@
   max-width: 95%; /* Make sure the image doesn't overflow */
   margin-top: 50px;
   height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drive: none;
+  border-radius: 50%;
+  clip-path: circle(50%);
 }
 /* Zoom in on hover */
 .image:hover {
