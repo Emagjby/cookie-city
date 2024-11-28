@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export function formatCookies(cookies) {
+export function formatCurrency(cookies) {
   // Helper function to generate the alphabetic format (AA, AB, AC...)
   const getAlphabeticFormat = (num) => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -17,30 +17,29 @@ export function formatCookies(cookies) {
     return letters;
   };
 
-  if (cookies < 1000) {
+  const formatWithPrecision = (value, suffix) => {
+    // Retain three decimal places, trimming unnecessary zeros
+    return value.toFixed(3) + suffix;
+  };
+
+  if (cookies < 10_000) {
     return cookies.toString(); // No formatting needed for values less than 1000
   } else if (cookies < 1_000_000) {
-    // Format for thousands (K)
-    const formatted = (cookies / 1000).toFixed(3); // 3 decimal places
-    return parseFloat(formatted).toString() + 'K'; // Remove leading zeros
+    // Format for thousands (no K, only .)
+    return formatWithPrecision(cookies / 1000, '');
   } else if (cookies < 1_000_000_000) {
     // Format for millions (M)
-    const formatted = (cookies / 1_000_000).toFixed(3); // 3 decimal places
-    return parseFloat(formatted).toString() + 'M';
+    return formatWithPrecision(cookies / 1_000_000, 'M');
   } else if (cookies < 1_000_000_000_000) {
     // Format for billions (B)
-    const formatted = (cookies / 1_000_000_000).toFixed(3); // 3 decimal places
-    return parseFloat(formatted).toString() + 'B';
+    return formatWithPrecision(cookies / 1_000_000_000, 'B');
   } else if (cookies < 1_000_000_000_000_000) {
     // Format for trillions (T)
-    const formatted = (cookies / 1_000_000_000_000).toFixed(3); // 3 decimal places
-    return parseFloat(formatted).toString() + 'T';
+    return formatWithPrecision(cookies / 1_000_000_000_000, 'T');
   } else {
     // After trillions, use the alphabetic system
-    const alphabeticSuffix = getAlphabeticFormat(cookies / 1_000_000_000_000);
-    return (
-      parseFloat((cookies / 1_000_000_000_000).toFixed(3)).toString() +
-      alphabeticSuffix
-    );
+    const value = cookies / 1_000_000_000_000;
+    const alphabeticSuffix = getAlphabeticFormat(value);
+    return formatWithPrecision(value, alphabeticSuffix);
   }
 }
