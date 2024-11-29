@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "name": "Double Click",
+    "description": "Doubles the amount of cookies per click",
+    "price": 100,
+    "image": "/images/cookie.png",
+    "bought": false
+  },
+  {
+    "id": 1,
+    "name": "Triple Click",
+    "description": "Triples the amount of cookies per click",
+    "price": 500,
+    "image": "/images/cookie.png",
+    "bought": false
+  },
+  {
+    "id": 2,
+    "name": "Golden Touch",
+    "description": "Your clicks now have a chance to give bonus cookies",
+    "price": 1000,
+    "image": "/images/cookie.png",
+    "bought": false
+  },
+  {
+    "id": 3,
+    "name": "Cookie Rain",
+    "description": "Occasionally makes cookies rain from the sky",
+    "price": 2000,
+    "image": "/images/cookie.png",
+    "bought": false
+  },
+  {
+    "id": 4,
+    "name": "Cookie Storm",
+    "description": "Triggers a massive cookie storm every few minutes",
+    "price": 5000,
+    "image": "/images/cookie.png",
+    "bought": false
+  },
+  {
+    "id": 5,
+    "name": "Cookie Master",
+    "description": "Your clicking power is now legendary",
+    "price": 10000,
+    "image": "/images/cookie.png",
+    "bought": false
+  },
+  {
+    "id": 6,
+    "name": "Cookie God",
+    "description": "Ascend to cookie godhood with unlimited power",
+    "price": 50000,
+    "image": "/images/cookie.png",
+    "bought": false
+  },
+  {
+    "id": 7,
+    "name": "Cookie Universe",
+    "description": "Create an entire universe made of cookies",
+    "price": 100000,
+    "image": "/images/cookie.png",
+    "bought": false
+  }
+]

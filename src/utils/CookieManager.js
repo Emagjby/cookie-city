@@ -39,20 +39,16 @@ export const handleCookieButtonClick = (
   clickValue
 ) => {
   setCookies((prev) => prev + clickValue);
-  const id = Date.now(); // Unique ID
+  const id = Date.now();
   const randomXOffset = Math.floor(Math.random() * 21) - 10;
   const x = event.clientX + randomXOffset;
   const y = event.clientY - 10;
 
-  setFloatingTexts((prev) => [
-    ...prev,
-    { id, value: `+${clickValue}`, x, y }, // Add new floating text
-  ]);
+  setFloatingTexts((prev) => [...prev, { id, value: `+${clickValue}`, x, y }]);
 };
 
-// Removes floating text after animation
 export const handleRemove = (id, setFloatingTexts) => {
-  setFloatingTexts((prev) => prev.filter((text) => text.id !== id)); // Remove text
+  setFloatingTexts((prev) => prev.filter((text) => text.id !== id));
 };
 
 const CookieManager = {

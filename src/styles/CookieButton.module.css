@@ -5,9 +5,9 @@
 }
 
 .image {
-  transition: transform 0.3s ease; /* Smooth transition for click event */
-  width: 90%;
-  max-width: 95%; /* Make sure the image doesn't overflow */
+  transition: transform 0.3s ease;
+  width: 70%;
+  max-width: 95%;
   margin-top: 50px;
   height: auto;
   user-select: none;
@@ -16,12 +16,11 @@
   border-radius: 50%;
   clip-path: circle(50%);
 }
-/* Zoom in on hover */
+
 .image:hover {
-  transform: scale(1.05); /* Zoom in the image */
+  transform: scale(1.05);
 }
 
-/* Zoom out on mouse down */
 .image:active {
-  transform: scale(0.95); /* Zoom out the image when clicked */
+  transform: scale(0.95);
 }
