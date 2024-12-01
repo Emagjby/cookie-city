@@ -6,11 +6,11 @@ function CookieCounter(props) {
     <div className={styles.div}>
       <h1 className={styles.h1}>
         {/* COOKIES COUNTER */}
-        Cookies: {props.formatCurrency(props.cookies)}
+        Cookies: {Math.floor(props.formatCurrency(props.cookies))}
       </h1>
       <h1 className={styles.cps}>
         {/* CPS COUNTER:*/}
-        CPS: {props.formatCurrency(props.cps)}
+        CPS: {Math.floor(props.formatCurrency(props.cps))}
       </h1>
     </div>
   );

@@ -1,3 +1,5 @@
+import { click } from '@testing-library/user-event/dist/click';
+
 export function formatCurrency(cookies) {
   const getAlphabeticFormat = (num) => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -36,15 +38,19 @@ export const handleCookieButtonClick = (
   event,
   setCookies,
   setFloatingTexts,
-  clickValue
+  clickValue,
+  clickValueMultiplier
 ) => {
-  setCookies((prev) => prev + clickValue);
+  setCookies((prev) => prev + clickValue * clickValueMultiplier);
   const id = Date.now();
   const randomXOffset = Math.floor(Math.random() * 21) - 10;
   const x = event.clientX + randomXOffset;
   const y = event.clientY - 10;
 
-  setFloatingTexts((prev) => [...prev, { id, value: `+${clickValue}`, x, y }]);
+  setFloatingTexts((prev) => [
+    ...prev,
+    { id, value: `+${clickValue * clickValueMultiplier}`, x, y },
+  ]);
 };
 
 export const handleRemove = (id, setFloatingTexts) => {

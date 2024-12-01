@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CookieCounter from './components/CookieCounter';
 import CookieButton from './components/CookieButton';
 import { PresentationalFloatingTexts } from './components/FloatingText';
@@ -10,7 +10,17 @@ function App() {
   const [cookies, setCookies] = useState(0);
   const [CPS, setCPS] = useState(0);
   const [clickValue, setClickValue] = useState(1);
+  const [CPSMultiplier, setCPSMultiplier] = useState(1);
+  const [clickValueMultiplier, setClickValueMultiplier] = useState(1);
   const [floatingTexts, setFloatingTexts] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCookies((prevCookies) => prevCookies + CPS * CPSMultiplier);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [CPS]);
 
   return (
     <div className="container">
@@ -26,7 +36,8 @@ function App() {
               event,
               setCookies,
               setFloatingTexts,
-              clickValue
+              clickValue,
+              clickValueMultiplier
             )
           }
         />
@@ -39,7 +50,12 @@ function App() {
       <div className="section"></div>
       <div className="section" id="Shop">
         <h1 id="Shop">Shop</h1>
-        <OneTimeUpgrades />
+        <OneTimeUpgrades
+          cookies={cookies}
+          setCookies={setCookies}
+          setCPSMultiplier={setCPSMultiplier}
+          setClickValueMultiplier={setClickValueMultiplier}
+        />
         <CPSUpgrades />
       </div>
       <div className="navbar"></div>

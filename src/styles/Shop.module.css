@@ -17,11 +17,13 @@
   width: 100%;
   height: auto;
   overflow-y: none;
+  padding-bottom: 5px;
 }
 
 .oneTimeUpgrade {
   margin: 5px;
-  border: 2.5px dashed white;
+  padding: 5px;
+  border-radius: 10%;
   background-color: #2c3e50;
   color: white;
   width: 15%;
@@ -29,6 +31,7 @@
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
+  justify-content: center;
 }
 
 .oneTimeUpgrade:hover {
@@ -68,11 +71,22 @@
 }
 
 .infoBox h3 {
-  margin: 0 0 12px 0;
+  margin: 0 0 5px 0;
   font-size: 1.2em;
   text-align: center;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.infoBox .type {
+  margin-top: 0;
+  margin-left: 42%;
+  display: inline-block;
+  font-weight: bolder;
+  padding: 3px 6px;
+  color: black;
+  background-color: white;
+  border-radius: 50px;
 }
 
 .infoBox .price {
@@ -83,17 +97,27 @@
   font-size: 1.1em;
 }
 
+.infoBox .effect {
+  color: #2ebccc;
+  font-weight: bold;
+  margin: 8px 0;
+  text-align: center;
+  font-size: 1.1em;
+}
+
 .infoBox .description {
   font-size: 1em;
   margin: 8px 0;
   line-height: 1.5;
-  color: #ecf0f1;
+  color: #b1b5b5;
   text-align: center;
+  font-style: italic;
 }
 
 .placeholder {
   margin: 5px;
-  border: 2.5px dashed white;
+  padding: 5px;
+  border-radius: 10px;
   background-color: rgb(0, 0, 0, 0.5);
   width: 15%;
   aspect-ratio: 1/1;

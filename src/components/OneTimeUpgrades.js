@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Shop.module.css';
 
-function OneTimeUpgrades() {
+function OneTimeUpgrades({
+  cookies,
+  setCookies,
+  setCPSMultiplier,
+  setClickValueMultiplier,
+}) {
   const [upgrades, setUpgrades] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/data/OneTimeUpgradesData.json');
+        const response = await fetch('./data/OneTimeUpgradesData.json');
         const data = await response.json();
         setUpgrades(data);
       } catch (error) {
@@ -19,11 +24,21 @@ function OneTimeUpgrades() {
   }, []);
 
   const handleClick = (id) => {
-    setUpgrades((prev) =>
-      prev.map((upgrade) =>
-        upgrade.id === id ? { ...upgrade, bought: true } : upgrade
-      )
-    );
+    const upgrade = upgrades.find((upg) => upg.id === id);
+    if (upgrade && cookies >= upgrade.price) {
+      setUpgrades((prev) =>
+        prev.map((upg) => (upg.id === id ? { ...upg, bought: true } : upg))
+      );
+      setCookies((prev) => prev - upgrade.price);
+      upgrade.area == 'cps'
+        ? setCPSMultiplier((prev) => prev + upgrade.multiplier)
+        : setCPSMultiplier((prev) => prev + 0);
+      upgrade.area == 'clickValue'
+        ? setClickValueMultiplier((prev) => prev + upgrade.multiplier)
+        : setClickValueMultiplier((prev) => prev + 0);
+    } else {
+      console.log('Not enough cookies to buy this upgrade.');
+    }
   };
 
   const visibleUpgrades = upgrades
@@ -69,10 +84,12 @@ function OneTimeUpgrades() {
           )}
         </div>
       </div>
-      {hoveredUpgrade && (
+      {hoveredUpgrade && visibleUpgrades.length > 0 && (
         <div className={styles.infoBox}>
           <h3>{hoveredUpgrade.name}</h3>
+          <h6 className={styles.type}>{hoveredUpgrade.type}</h6>
           <p className={styles.price}>Price: {hoveredUpgrade.price} cookies</p>
+          <p className={styles.effect}>Effect: {hoveredUpgrade.effect}</p>
           <p className={styles.description}>{hoveredUpgrade.description}</p>
         </div>
       )}
