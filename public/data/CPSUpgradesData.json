@@ -1,0 +1,202 @@
+[
+  {
+    "id": 0,
+    "name": "Baker Assistant",
+    "description": "Hire a baker to help out in the kitchen.",
+    "baseCPSGain": 1,
+    "basePrice": 10,
+    "owned": 0
+  },
+  {
+    "id": 1,
+    "name": "Oven Upgrade",
+    "description": "Add a new oven to increase baking speed.",
+    "baseCPSGain": 3,
+    "basePrice": 50,
+    "owned": 0
+  },
+  {
+    "id": 2,
+    "name": "Cookie Cutter Pro",
+    "description": "Use advanced cookie cutters for perfect cookies.",
+    "baseCPSGain": 7,
+    "basePrice": 150,
+    "owned": 0
+  },
+  {
+    "id": 3,
+    "name": "Packaging Machine",
+    "description": "Automate packaging for faster delivery.",
+    "baseCPSGain": 15,
+    "basePrice": 500,
+    "owned": 0
+  },
+  {
+    "id": 4,
+    "name": "Factory Line Worker",
+    "description": "Hire a factory worker for 24/7 baking.",
+    "baseCPSGain": 30,
+    "basePrice": 1000,
+    "owned": 0
+  },
+  {
+    "id": 5,
+    "name": "High-Speed Oven",
+    "description": "Install an oven that bakes at lightning speed.",
+    "baseCPSGain": 75,
+    "basePrice": 5000,
+    "owned": 0
+  },
+  {
+    "id": 6,
+    "name": "Advanced Robotics",
+    "description": "Deploy robots to bake and assemble cookies.",
+    "baseCPSGain": 200,
+    "basePrice": 20000,
+    "owned": 0
+  },
+  {
+    "id": 7,
+    "name": "Nano-Assembly Line",
+    "description": "Use nanotechnology to boost cookie production.",
+    "baseCPSGain": 500,
+    "basePrice": 100000,
+    "owned": 0
+  },
+  {
+    "id": 8,
+    "name": "Quantum Bakers",
+    "description": "Bakers who manipulate quantum states to bake.",
+    "baseCPSGain": 1000,
+    "basePrice": 500000,
+    "owned": 0
+  },
+  {
+    "id": 9,
+    "name": "Time Accelerator",
+    "description": "Manipulate time to bake cookies faster.",
+    "baseCPSGain": 5000,
+    "basePrice": 2000000,
+    "owned": 0
+  },
+  {
+    "id": 10,
+    "name": "Giant Dough Mixer",
+    "description": "Mix enough dough for thousands of cookies at once.",
+    "baseCPSGain": 15000,
+    "basePrice": 10000000,
+    "owned": 0
+  },
+  {
+    "id": 11,
+    "name": "Infinite Batter Generator",
+    "description": "A perpetual machine that never runs out of batter.",
+    "baseCPSGain": 30000,
+    "basePrice": 50000000,
+    "owned": 0
+  },
+  {
+    "id": 12,
+    "name": "Cookie AI",
+    "description": "An AI dedicated to perfecting cookie recipes.",
+    "baseCPSGain": 100000,
+    "basePrice": 200000000,
+    "owned": 0
+  },
+  {
+    "id": 13,
+    "name": "Hyperactive Bakers",
+    "description": "Bakers fueled by endless energy to never stop.",
+    "baseCPSGain": 250000,
+    "basePrice": 1000000000,
+    "owned": 0
+  },
+  {
+    "id": 14,
+    "name": "Antimatter Oven",
+    "description": "Bake cookies with the power of antimatter.",
+    "baseCPSGain": 1000000,
+    "basePrice": 5000000000,
+    "owned": 0
+  },
+  {
+    "id": 15,
+    "name": "Dark Chocolate Forge",
+    "description": "Forge cookies from the densest dark chocolate.",
+    "baseCPSGain": 3000000,
+    "basePrice": 25000000000,
+    "owned": 0
+  },
+  {
+    "id": 16,
+    "name": "Starlight Mill",
+    "description": "Grind flour from starlight for cosmic cookies.",
+    "baseCPSGain": 10000000,
+    "basePrice": 100000000000,
+    "owned": 0
+  },
+  {
+    "id": 17,
+    "name": "Cosmic Bakers",
+    "description": "Bakers who craft cookies from galaxies.",
+    "baseCPSGain": 25000000,
+    "basePrice": 500000000000,
+    "owned": 0
+  },
+  {
+    "id": 18,
+    "name": "Celestial Oven",
+    "description": "An oven powered by the heart of a star.",
+    "baseCPSGain": 50000000,
+    "basePrice": 1000000000000,
+    "owned": 0
+  },
+  {
+    "id": 19,
+    "name": "Black Hole Batter",
+    "description": "Harvest batter from the edge of a black hole.",
+    "baseCPSGain": 100000000,
+    "basePrice": 5000000000000,
+    "owned": 0
+  },
+  {
+    "id": 20,
+    "name": "Multiverse Cookie Factory",
+    "description": "Create cookies across infinite dimensions.",
+    "baseCPSGain": 500000000,
+    "basePrice": 25000000000000,
+    "owned": 0
+  },
+  {
+    "id": 21,
+    "name": "Time-Lord Bakers",
+    "description": "Bakers who control time to mass-produce cookies.",
+    "baseCPSGain": 1000000000,
+    "basePrice": 100000000000000,
+    "owned": 0
+  },
+  {
+    "id": 22,
+    "name": "Ethereal Cookie Spirits",
+    "description": "Spirits that whisper recipes from beyond the veil.",
+    "baseCPSGain": 5000000000,
+    "basePrice": 500000000000000,
+    "owned": 0
+  },
+  {
+    "id": 23,
+    "name": "Galactic Bakery",
+    "description": "A bakery that spans across galaxies.",
+    "baseCPSGain": 10000000000,
+    "basePrice": 1000000000000000,
+    "owned": 0
+  },
+  {
+    "id": 24,
+    "name": "Big Bang Cookies",
+    "description": "Generate cookies from the energy of creation itself.",
+    "baseCPSGain": 50000000000,
+    "basePrice": 5000000000000000,
+    "owned": 0
+  }
+]

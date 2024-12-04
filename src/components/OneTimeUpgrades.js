@@ -16,7 +16,7 @@ function OneTimeUpgrades({
         const data = await response.json();
         setUpgrades(data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data: ', error);
       }
     };
 
@@ -43,8 +43,8 @@ function OneTimeUpgrades({
 
   const visibleUpgrades = upgrades
     .filter((upgrade) => !upgrade.bought)
-    .slice(0, 6);
-  const placeholders = Array(6 - visibleUpgrades.length).fill(null);
+    .slice(0, 5);
+  const placeholders = Array(5 - visibleUpgrades.length).fill(null);
   const displayUpgrades = [...visibleUpgrades, ...placeholders];
 
   const [hoveredUpgrade, setHoveredUpgrade] = useState(null);

@@ -1,3 +1,4 @@
+/* General Styles */
 .cpsUpgrades {
   width: 100%;
   height: 80%;
@@ -7,30 +8,31 @@
 
 .withLabel {
   background-color: #d9d9d9;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-  padding-bottom: 5px;
+  border-top: 0.5vh solid black;
+  border-bottom: 0.5vh solid black;
+  padding-bottom: 0.5vh;
 }
 
+/* One-Time Upgrade Section */
 .oneTimeUpgrades {
   display: flex;
-  width: 100%;
-  height: auto;
+  justify-content: space-between;
+  margin: 0 1vw;
+  padding-bottom: 1vh;
   overflow-y: none;
-  padding-bottom: 5px;
 }
 
 .oneTimeUpgrade {
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10%;
+  margin: 1vh;
+  padding: 1vh;
+  border-radius: 1vw;
   background-color: #2c3e50;
   color: white;
-  width: 15%;
+  width: 12.5vw;
   aspect-ratio: 1/1;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
   justify-content: center;
 }
 
@@ -44,21 +46,156 @@
   object-fit: cover;
 }
 
+/* Placeholder Styles */
+.placeholder {
+  margin: 1vh;
+  padding: 1vh;
+  border-radius: 1vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 12.5vw;
+  aspect-ratio: 1/1;
+}
+
+/* CPS Upgrade Styles */
+.CPSUpgrade {
+  background-color: #2c3e50;
+  color: #ffffff;
+  margin: 1.5vw 1.5vw;
+  padding: 2vw;
+  border-radius: 1vw;
+  transition: transform 0.2s ease;
+}
+
+.CPSUpgrade:hover {
+  transform: scale(1.03);
+}
+
+.CPSUpgrade:active {
+  transform: scale(0.97);
+}
+
+.CPSUpgrade h2 {
+  font-size: 1.5vw;
+  margin: 0 0 0.2vw 0;
+}
+
+.CPSUpgrade p {
+  font-size: 1vw;
+}
+
+/* Info Box (General) */
 .infoBox {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(44, 62, 80, 0.95);
-  padding: 15px;
-  border-radius: 8px;
-  width: 250px;
+  padding: 3vh;
+  border-radius: 1vw;
+  width: 29vw;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1vh 5vh rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.2s ease-out;
   pointer-events: none;
 }
 
+.infoBox h3 {
+  margin: 0 0 1vh 0;
+  font-size: 1.5vw;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
+}
+
+.infoBox .type {
+  margin-top: 0;
+  margin-left: 45%;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5vh 1vh;
+  color: black;
+  background-color: white;
+  border-radius: 2vw;
+}
+
+.infoBox .price {
+  color: #2ecc71;
+  font-weight: bold;
+  margin: 1.5vh 0;
+  text-align: center;
+  font-size: 1.2vw;
+}
+
+.infoBox .effect {
+  color: #2ebccc;
+  font-weight: bold;
+  margin: 1.5vh 0;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.infoBox .description {
+  font-size: 0.9vw;
+  margin: 1vh 0;
+  line-height: 1.8;
+  color: #b1b5b5;
+  text-align: center;
+  font-style: italic;
+}
+
+/* CPS Info Box */
+.infoBoxCPS {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(44, 62, 80, 0.95);
+  padding: 3vh;
+  border-radius: 1vw;
+  width: 29vw;
+  z-index: 1000;
+  box-shadow: 0 1vh 5vh rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.2s ease-out;
+  pointer-events: none;
+}
+
+.infoBoxCPS .nameAndPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2vw;
+}
+
+.nameAndPrice h3 {
+  font-size: 1.2vw;
+  color: #fff;
+  text-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
+}
+
+.infoBoxCPS .price {
+  color: #2ecc71;
+  font-weight: bold;
+  margin: 1.5vh 0;
+  font-size: 1.1vw;
+}
+
+.infoBoxCPS .effect {
+  color: #ffffff;
+  margin: 1.5vh 0;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.infoBoxCPS .description {
+  font-size: 0.9vw;
+  margin: 1.5vh 0;
+  line-height: 1.8;
+  color: #b1b5b5;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -68,57 +205,4 @@
     opacity: 1;
     transform: translate(-50%, -50%);
   }
-}
-
-.infoBox h3 {
-  margin: 0 0 5px 0;
-  font-size: 1.2em;
-  text-align: center;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.infoBox .type {
-  margin-top: 0;
-  margin-left: 42%;
-  display: inline-block;
-  font-weight: bolder;
-  padding: 3px 6px;
-  color: black;
-  background-color: white;
-  border-radius: 50px;
-}
-
-.infoBox .price {
-  color: #2ecc71;
-  font-weight: bold;
-  margin: 8px 0;
-  text-align: center;
-  font-size: 1.1em;
-}
-
-.infoBox .effect {
-  color: #2ebccc;
-  font-weight: bold;
-  margin: 8px 0;
-  text-align: center;
-  font-size: 1.1em;
-}
-
-.infoBox .description {
-  font-size: 1em;
-  margin: 8px 0;
-  line-height: 1.5;
-  color: #b1b5b5;
-  text-align: center;
-  font-style: italic;
-}
-
-.placeholder {
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px;
-  background-color: rgb(0, 0, 0, 0.5);
-  width: 15%;
-  aspect-ratio: 1/1;
 }

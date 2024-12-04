@@ -24,6 +24,7 @@ function App() {
 
   return (
     <div className="container">
+      <div className="section"></div>
       <div className="section" id="Clicker">
         <CookieCounter
           formatCurrency={CookieManager.formatCurrency}
@@ -47,7 +48,7 @@ function App() {
           setFloatingTexts={setFloatingTexts}
         />
       </div>
-      <div className="section"></div>
+
       <div className="section" id="Shop">
         <h1 id="Shop">Shop</h1>
         <OneTimeUpgrades
@@ -56,7 +57,12 @@ function App() {
           setCPSMultiplier={setCPSMultiplier}
           setClickValueMultiplier={setClickValueMultiplier}
         />
-        <CPSUpgrades />
+        <CPSUpgrades
+          cookies={cookies}
+          setCookies={setCookies}
+          CPSMultiplier={CPSMultiplier}
+          setCPS={setCPS}
+        />
       </div>
       <div className="navbar"></div>
     </div>
