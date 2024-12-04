@@ -3,6 +3,11 @@ import styles from '../styles/Shop.module.css';
 
 function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
   const [upgrades, setUpgrades] = useState([]);
+  const [hoveredUpgrade, setHoveredUpgrade] = useState(null); // to track hovered upgrade
+
+  const calculateUpgradePrice = (basePrice, owned) => {
+    return Math.floor(basePrice * Math.pow(1.1, owned));
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,27 +32,29 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
       return; // Prevent further action
     }
 
-    if (cookies >= upgrade.basePrice) {
+    const price = calculateUpgradePrice(upgrade.basePrice, upgrade.owned);
+
+    if (cookies >= price) {
       setUpgrades((prev) =>
         prev.map((upg) =>
           upg.id === id ? { ...upg, owned: upg.owned + 1 } : upg
         )
       );
-      setCookies((prev) => prev - upgrade.basePrice); // Deduct cookies when upgrade is bought.
+      setCookies((prev) => prev - price); // Deduct cookies when upgrade is bought.
+
+      // Update hoveredUpgrade state to reflect the newly purchased upgrade
+      if (hoveredUpgrade && hoveredUpgrade.id === id) {
+        setHoveredUpgrade({
+          ...hoveredUpgrade,
+          owned: hoveredUpgrade.owned + 1,
+        });
+      }
     } else {
-      console.log(
-        'Needs ' + (upgrade.basePrice - cookies) + ' more cookies to buy'
-      );
+      console.log('Needs ' + (price - cookies) + ' more cookies to buy');
     }
   };
 
   const calculateTotalCPS = () => {
-    //Will have every type of upgrade and calculate it with something like this \/ and then the total will be the added of all
-    //Example: if i have
-    //let OvenUpgradesCPS = <same-as-below>
-    //OvenUpgradesCPS *= OvenUpgradeMultiplier
-    //will cycle thru the whole array of upgrades and add them all up
-
     let totalCPS = upgrades.reduce((acc, upgrade) => {
       return acc + upgrade.baseCPSGain * upgrade.owned;
     }, 0);
@@ -77,6 +84,10 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
     for (let i = unlockedCount; i < upgrades.length; i++) {
       const upgrade = upgrades[i];
 
+      if (i === unlockedCount) {
+        visibleUpgrades.push(upgrade); // Show the first "???" upgrade after owned upgrades
+      }
+
       if (i === unlockedCount + 1) {
         visibleUpgrades.push(upgrade); // Show the first "???" upgrade after owned upgrades
       }
@@ -91,8 +102,6 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
 
   const visibleUpgrades = generateVisibleUpgrades();
 
-  const [hoveredUpgrade, setHoveredUpgrade] = useState(null);
-
   return (
     <>
       <div className={styles.cpsUpgrades}>
@@ -103,7 +112,7 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
               key={upgrade.id}
               className={styles.CPSUpgrade}
               onClick={() => {
-                if (upgrade.name != '???') {
+                if (upgrade.name !== '???') {
                   handleClick(upgrade.id);
                 }
               }}
@@ -118,7 +127,9 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
               }}
             >
               <h2>{upgrade.name}</h2>
-              <p>Price: {upgrade.basePrice}</p>
+              <p>
+                Price: {calculateUpgradePrice(upgrade.basePrice, upgrade.owned)}
+              </p>
             </div>
           ))
         ) : (
@@ -130,17 +141,25 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
           <div className={styles.nameAndPrice}>
             <h3>{hoveredUpgrade.name}</h3>
             <p className={styles.price}>
-              Price: {hoveredUpgrade.basePrice /* TODO */} cookies
+              Price:{' '}
+              {Math.floor(
+                calculateUpgradePrice(
+                  hoveredUpgrade.basePrice,
+                  hoveredUpgrade.owned
+                )
+              )}{' '}
+              cookies
             </p>
           </div>
-          {hoveredUpgrade.name != '???' && (
+          {hoveredUpgrade.name !== '???' && (
             <p className={styles.effect}>
               <strong>Each</strong> {hoveredUpgrade.name} produces{' '}
               <strong>
-                {hoveredUpgrade.baseCPSGain * CPSMultiplier} Cookies per second
+                {Math.floor(hoveredUpgrade.baseCPSGain * CPSMultiplier)} Cookies
+                per second
               </strong>
               <br />
-              {hoveredUpgrade.owned != 0 && (
+              {hoveredUpgrade.owned !== 0 && (
                 <>
                   <strong>
                     {hoveredUpgrade.owned} {hoveredUpgrade.name}
@@ -148,9 +167,11 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
                   </strong>{' '}
                   producing{' '}
                   <strong>
-                    {hoveredUpgrade.baseCPSGain *
-                      CPSMultiplier *
-                      hoveredUpgrade.owned}{' '}
+                    {Math.floor(
+                      hoveredUpgrade.baseCPSGain *
+                        CPSMultiplier *
+                        hoveredUpgrade.owned
+                    )}{' '}
                     Cookies per second
                   </strong>
                 </>
@@ -158,7 +179,7 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
             </p>
           )}
           <p className={styles.description}>
-            {(hoveredUpgrade.name != '???' && hoveredUpgrade.description) ||
+            {(hoveredUpgrade.name !== '???' && hoveredUpgrade.description) ||
               '???'}
           </p>
         </div>

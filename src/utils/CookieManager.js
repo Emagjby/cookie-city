@@ -1,37 +1,31 @@
 import { click } from '@testing-library/user-event/dist/click';
 
-export function formatCurrency(cookies) {
-  const getAlphabeticFormat = (num) => {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let letters = '';
-    let remainder = num;
-    while (remainder >= 0) {
-      letters = alphabet[remainder % 26] + letters;
-      remainder = Math.floor(remainder / 26) - 1;
-      if (remainder < 0) break;
-    }
-    return letters;
-  };
-
-  const formatWithPrecision = (value, suffix) => {
-    return value.toFixed(3) + suffix;
-  };
-
-  if (cookies < 10_000) {
-    return cookies.toString();
-  } else if (cookies < 1_000_000) {
-    return formatWithPrecision(cookies / 1000, '');
-  } else if (cookies < 1_000_000_000) {
-    return formatWithPrecision(cookies / 1_000_000, 'M');
-  } else if (cookies < 1_000_000_000_000) {
-    return formatWithPrecision(cookies / 1_000_000_000, 'B');
-  } else if (cookies < 1_000_000_000_000_000) {
-    return formatWithPrecision(cookies / 1_000_000_000_000, 'T');
-  } else {
-    const value = cookies / 1_000_000_000_000;
-    const alphabeticSuffix = getAlphabeticFormat(value);
-    return formatWithPrecision(value, alphabeticSuffix);
+function formatCurrency(number) {
+  if (isNaN(number) || number === null || number === undefined) {
+    return 'Invalid number';
   }
+
+  const units = [
+    '',
+    'K',
+    'M',
+    'B', // Billion
+    'T', // Trillion
+    'Qa', // Quadrillion
+    'Qi', // Quintillion
+    'Sx', // Sextillion
+  ];
+
+  const allUnits = [...units];
+
+  let unitIndex = 0;
+
+  while (number >= 1000 && unitIndex < allUnits.length - 1) {
+    number /= 1000;
+    unitIndex++;
+  }
+
+  return `${parseFloat(number.toFixed(3))}${allUnits[unitIndex]}`;
 }
 
 export const handleCookieButtonClick = (

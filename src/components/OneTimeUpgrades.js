@@ -31,10 +31,10 @@ function OneTimeUpgrades({
       );
       setCookies((prev) => prev - upgrade.price);
       upgrade.area == 'cps'
-        ? setCPSMultiplier((prev) => prev + upgrade.multiplier)
+        ? setCPSMultiplier((prev) => prev * upgrade.multiplier)
         : setCPSMultiplier((prev) => prev + 0);
       upgrade.area == 'clickValue'
-        ? setClickValueMultiplier((prev) => prev + upgrade.multiplier)
+        ? setClickValueMultiplier((prev) => prev * upgrade.multiplier)
         : setClickValueMultiplier((prev) => prev + 0);
     } else {
       console.log('Not enough cookies to buy this upgrade.');

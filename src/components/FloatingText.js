@@ -24,7 +24,10 @@ export const FloatingText = ({
         top: y,
       }}
     >
-      {value}
+      +
+      {parseFloat(value) < 100
+        ? parseFloat(value).toFixed(1)
+        : parseFloat(value).toFixed(0)}
     </span>
   );
 };

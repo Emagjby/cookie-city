@@ -4,7 +4,7 @@
     "name": "Baker Assistant",
     "description": "Hire a baker to help out in the kitchen.",
     "baseCPSGain": 1,
-    "basePrice": 10,
+    "basePrice": 30,
     "owned": 0
   },
   {
@@ -12,191 +12,191 @@
     "name": "Oven Upgrade",
     "description": "Add a new oven to increase baking speed.",
     "baseCPSGain": 3,
-    "basePrice": 50,
+    "basePrice": 170,
     "owned": 0
   },
   {
     "id": 2,
     "name": "Cookie Cutter Pro",
     "description": "Use advanced cookie cutters for perfect cookies.",
-    "baseCPSGain": 7,
-    "basePrice": 150,
+    "baseCPSGain": 10,
+    "basePrice": 1000,
     "owned": 0
   },
   {
     "id": 3,
     "name": "Packaging Machine",
     "description": "Automate packaging for faster delivery.",
-    "baseCPSGain": 15,
-    "basePrice": 500,
+    "baseCPSGain": 30,
+    "basePrice": 6000,
     "owned": 0
   },
   {
     "id": 4,
     "name": "Factory Line Worker",
     "description": "Hire a factory worker for 24/7 baking.",
-    "baseCPSGain": 30,
-    "basePrice": 1000,
+    "baseCPSGain": 75,
+    "basePrice": 35000,
     "owned": 0
   },
   {
     "id": 5,
     "name": "High-Speed Oven",
     "description": "Install an oven that bakes at lightning speed.",
-    "baseCPSGain": 75,
-    "basePrice": 5000,
+    "baseCPSGain": 150,
+    "basePrice": 175000,
     "owned": 0
   },
   {
     "id": 6,
     "name": "Advanced Robotics",
     "description": "Deploy robots to bake and assemble cookies.",
-    "baseCPSGain": 200,
-    "basePrice": 20000,
+    "baseCPSGain": 500,
+    "basePrice": 800000,
     "owned": 0
   },
   {
     "id": 7,
     "name": "Nano-Assembly Line",
     "description": "Use nanotechnology to boost cookie production.",
-    "baseCPSGain": 500,
-    "basePrice": 100000,
+    "baseCPSGain": 1500,
+    "basePrice": 3500000,
     "owned": 0
   },
   {
     "id": 8,
     "name": "Quantum Bakers",
     "description": "Bakers who manipulate quantum states to bake.",
-    "baseCPSGain": 1000,
-    "basePrice": 500000,
+    "baseCPSGain": 4000,
+    "basePrice": 17000000,
     "owned": 0
   },
   {
     "id": 9,
     "name": "Time Accelerator",
     "description": "Manipulate time to bake cookies faster.",
-    "baseCPSGain": 5000,
-    "basePrice": 2000000,
+    "baseCPSGain": 12000,
+    "basePrice": 85000000,
     "owned": 0
   },
   {
     "id": 10,
     "name": "Giant Dough Mixer",
     "description": "Mix enough dough for thousands of cookies at once.",
-    "baseCPSGain": 15000,
-    "basePrice": 10000000,
+    "baseCPSGain": 40000,
+    "basePrice": 425000000,
     "owned": 0
   },
   {
     "id": 11,
     "name": "Infinite Batter Generator",
     "description": "A perpetual machine that never runs out of batter.",
-    "baseCPSGain": 30000,
-    "basePrice": 50000000,
+    "baseCPSGain": 100000,
+    "basePrice": 2125000000,
     "owned": 0
   },
   {
     "id": 12,
     "name": "Cookie AI",
     "description": "An AI dedicated to perfecting cookie recipes.",
-    "baseCPSGain": 100000,
-    "basePrice": 200000000,
+    "baseCPSGain": 500000,
+    "basePrice": 10625000000,
     "owned": 0
   },
   {
     "id": 13,
     "name": "Hyperactive Bakers",
     "description": "Bakers fueled by endless energy to never stop.",
-    "baseCPSGain": 250000,
-    "basePrice": 1000000000,
+    "baseCPSGain": 1500000,
+    "basePrice": 53125000000,
     "owned": 0
   },
   {
     "id": 14,
     "name": "Antimatter Oven",
     "description": "Bake cookies with the power of antimatter.",
-    "baseCPSGain": 1000000,
-    "basePrice": 5000000000,
+    "baseCPSGain": 5000000,
+    "basePrice": 265625000000,
     "owned": 0
   },
   {
     "id": 15,
     "name": "Dark Chocolate Forge",
     "description": "Forge cookies from the densest dark chocolate.",
-    "baseCPSGain": 3000000,
-    "basePrice": 25000000000,
+    "baseCPSGain": 15000000,
+    "basePrice": 1328125000000,
     "owned": 0
   },
   {
     "id": 16,
     "name": "Starlight Mill",
     "description": "Grind flour from starlight for cosmic cookies.",
-    "baseCPSGain": 10000000,
-    "basePrice": 100000000000,
+    "baseCPSGain": 50000000,
+    "basePrice": 6640625000000,
     "owned": 0
   },
   {
     "id": 17,
     "name": "Cosmic Bakers",
     "description": "Bakers who craft cookies from galaxies.",
-    "baseCPSGain": 25000000,
-    "basePrice": 500000000000,
+    "baseCPSGain": 150000000,
+    "basePrice": 33203125000000,
     "owned": 0
   },
   {
     "id": 18,
     "name": "Celestial Oven",
     "description": "An oven powered by the heart of a star.",
-    "baseCPSGain": 50000000,
-    "basePrice": 1000000000000,
+    "baseCPSGain": 500000000,
+    "basePrice": 166015625000000,
     "owned": 0
   },
   {
     "id": 19,
     "name": "Black Hole Batter",
     "description": "Harvest batter from the edge of a black hole.",
-    "baseCPSGain": 100000000,
-    "basePrice": 5000000000000,
+    "baseCPSGain": 1500000000,
+    "basePrice": 830078125000000,
     "owned": 0
   },
   {
     "id": 20,
     "name": "Multiverse Cookie Factory",
     "description": "Create cookies across infinite dimensions.",
-    "baseCPSGain": 500000000,
-    "basePrice": 25000000000000,
+    "baseCPSGain": 5000000000,
+    "basePrice": 4150390625000000,
     "owned": 0
   },
   {
     "id": 21,
     "name": "Time-Lord Bakers",
     "description": "Bakers who control time to mass-produce cookies.",
-    "baseCPSGain": 1000000000,
-    "basePrice": 100000000000000,
+    "baseCPSGain": 15000000000,
+    "basePrice": 20751953125000000,
     "owned": 0
   },
   {
     "id": 22,
     "name": "Ethereal Cookie Spirits",
     "description": "Spirits that whisper recipes from beyond the veil.",
-    "baseCPSGain": 5000000000,
-    "basePrice": 500000000000000,
+    "baseCPSGain": 50000000000,
+    "basePrice": 103759765625000000,
     "owned": 0
   },
   {
     "id": 23,
     "name": "Galactic Bakery",
     "description": "A bakery that spans across galaxies.",
-    "baseCPSGain": 10000000000,
-    "basePrice": 1000000000000000,
+    "baseCPSGain": 150000000000,
+    "basePrice": 518798828125000000,
     "owned": 0
   },
   {
     "id": 24,
     "name": "Big Bang Cookies",
     "description": "Generate cookies from the energy of creation itself.",
-    "baseCPSGain": 50000000000,
-    "basePrice": 5000000000000000,
+    "baseCPSGain": 500000000000,
+    "basePrice": 2593994140625000000,
     "owned": 0
   }
 ]

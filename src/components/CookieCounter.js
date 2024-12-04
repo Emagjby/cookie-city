@@ -6,7 +6,10 @@ function CookieCounter(props) {
     <div className={styles.div}>
       <h1 className={styles.h1}>
         {/* COOKIES COUNTER */}
-        Cookies: {Math.floor(props.formatCurrency(props.cookies))}
+        Cookies:{' '}
+        {props.cookies < 1000
+          ? Math.floor(props.formatCurrency(props.cookies))
+          : props.formatCurrency(props.cookies)}
       </h1>
       <h1 className={styles.cps}>
         {/* CPS COUNTER:*/}
