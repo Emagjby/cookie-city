@@ -8,6 +8,7 @@ function OneTimeUpgrades({
   setClickValueMultiplier,
 }) {
   const [upgrades, setUpgrades] = useState([]);
+  const [disabledButtons, setDisabledButtons] = useState([]); // Track temporarily disabled buttons
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +23,13 @@ function OneTimeUpgrades({
 
     fetchData();
   }, []);
+
+  const handleInvalidClick = (id) => {
+    setDisabledButtons((prev) => [...prev, id]); // Disable the button temporarily
+    setTimeout(() => {
+      setDisabledButtons((prev) => prev.filter((btnId) => btnId !== id)); // Re-enable after 1.5s
+    }, 500);
+  };
 
   const handleClick = (id) => {
     const upgrade = upgrades.find((upg) => upg.id === id);
@@ -38,6 +46,7 @@ function OneTimeUpgrades({
         : setClickValueMultiplier((prev) => prev + 0);
     } else {
       console.log('Not enough cookies to buy this upgrade.');
+      handleInvalidClick(id);
     }
   };
 
@@ -61,7 +70,9 @@ function OneTimeUpgrades({
               <div
                 id="clickable"
                 key={upgrade.id}
-                className={styles.oneTimeUpgrade}
+                className={`${styles.oneTimeUpgrade} ${
+                  disabledButtons.includes(upgrade.id) ? styles.disabled : ''
+                }`}
                 onClick={() => handleClick(upgrade.id)}
                 onMouseEnter={() => setHoveredUpgrade(upgrade)}
                 onMouseLeave={() => setHoveredUpgrade(null)}
@@ -77,9 +88,7 @@ function OneTimeUpgrades({
                 id="notAllowed"
                 key={index + upgrades.length + 1}
                 className={styles.placeholder}
-              >
-                {/* To add a ico of a lock or smth */}
-              </div>
+              ></div>
             )
           )}
         </div>

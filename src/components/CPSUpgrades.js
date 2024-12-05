@@ -4,6 +4,7 @@ import styles from '../styles/Shop.module.css';
 function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
   const [upgrades, setUpgrades] = useState([]);
   const [hoveredUpgrade, setHoveredUpgrade] = useState(null); // to track hovered upgrade
+  const [disabledButtons, setDisabledButtons] = useState([]); // Track temporarily disabled buttons
 
   const calculateUpgradePrice = (basePrice, owned) => {
     return Math.floor(basePrice * Math.pow(1.1, owned));
@@ -25,13 +26,6 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
 
   const handleClick = (id) => {
     const upgrade = upgrades.find((upg) => upg.id === id);
-
-    // Block interaction with unavailable upgrades
-    if (!upgrade || upgrade.name === '???') {
-      console.log('This upgrade is not available for purchase.');
-      return; // Prevent further action
-    }
-
     const price = calculateUpgradePrice(upgrade.basePrice, upgrade.owned);
 
     if (cookies >= price) {
@@ -51,7 +45,15 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
       }
     } else {
       console.log('Needs ' + (price - cookies) + ' more cookies to buy');
+      handleInvalidClick(upgrade.id);
     }
+  };
+
+  const handleInvalidClick = (id) => {
+    setDisabledButtons((prev) => [...prev, id]); // Disable the button temporarily
+    setTimeout(() => {
+      setDisabledButtons((prev) => prev.filter((btnId) => btnId !== id)); // Re-enable after 1.5s
+    }, 500);
   };
 
   const calculateTotalCPS = () => {
@@ -72,28 +74,30 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
     const visibleUpgrades = [];
     let unlockedCount = 0;
 
-    for (let i = 0; i < upgrades.length; i++) {
-      const upgrade = upgrades[i];
-
+    // Add owned upgrades first
+    for (const upgrade of upgrades) {
       if (upgrade.owned > 0) {
         visibleUpgrades.push(upgrade);
         unlockedCount++;
       }
     }
 
-    for (let i = unlockedCount; i < upgrades.length; i++) {
-      const upgrade = upgrades[i];
+    // Add available upgrades (first `???` or unlockable upgrades)
+    const remainingUpgrades = upgrades.slice(unlockedCount);
 
-      if (i === unlockedCount) {
-        visibleUpgrades.push(upgrade); // Show the first "???" upgrade after owned upgrades
-      }
-
-      if (i === unlockedCount + 1) {
-        visibleUpgrades.push(upgrade); // Show the first "???" upgrade after owned upgrades
-      }
-
-      if (i === unlockedCount + 2 || i === unlockedCount + 3) {
-        visibleUpgrades.push({ ...upgrade, name: '???' }); // Show "???" for subsequent upgrades
+    // Add the next unlockable upgrade (up to 2 visible ones)
+    for (let i = 0; i < 4; i++) {
+      if (i == 0) {
+        visibleUpgrades.push({ ...remainingUpgrades[i], isGray: false });
+      } else if (i == 1) {
+        visibleUpgrades.push({ ...remainingUpgrades[i], isGray: true });
+      } else {
+        // Add ??? for subsequent upgrades
+        visibleUpgrades.push({
+          ...remainingUpgrades[i],
+          name: '???',
+          isGray: false,
+        });
       }
     }
 
@@ -110,10 +114,14 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
             <div
               id="clickable"
               key={upgrade.id}
-              className={styles.CPSUpgrade}
+              className={`${styles.CPSUpgrade} ${
+                disabledButtons.includes(upgrade.id) ? styles.disabled : ''
+              }`}
               onClick={() => {
-                if (upgrade.name !== '???') {
+                if (upgrade.name !== '???' && !upgrade.isGray) {
                   handleClick(upgrade.id);
+                } else {
+                  handleInvalidClick(upgrade.id);
                 }
               }}
               onMouseEnter={() => setHoveredUpgrade(upgrade)}
@@ -122,8 +130,14 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
                 cursor: upgrade.name === '???' ? 'not-allowed' : 'pointer',
                 backgroundColor:
                   upgrade.name !== '???'
-                    ? 'rgba(44, 62, 80, 0.95)'
-                    : 'rgba(0, 0, 0, 0.5)',
+                    ? disabledButtons.includes(upgrade.id)
+                      ? null
+                      : upgrade.isGray
+                        ? 'rgba(0, 0, 0, 0.5)'
+                        : 'rgba(44, 62, 80, 0.95)'
+                    : disabledButtons.includes(upgrade.id)
+                      ? null
+                      : 'rgba(0, 0, 0, 0.5)',
               }}
             >
               <h2>{upgrade.name}</h2>

@@ -10,7 +10,8 @@
     "multiplier": 1.5,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "basic"
+    "rarity": "basic",
+    "isGray": false
   },
   {
     "id": 1,
@@ -23,7 +24,8 @@
     "multiplier": 0.1,
     "area": "cps",
     "type": "recipe",
-    "rarity": "basic"
+    "rarity": "basic",
+    "isGray": false
   },
   {
     "id": 2,
@@ -36,7 +38,8 @@
     "multiplier": 2.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "intermediate"
+    "rarity": "intermediate",
+    "isGray": false
   },
   {
     "id": 3,
@@ -49,7 +52,8 @@
     "multiplier": 0.05,
     "area": "cps",
     "type": "recipe",
-    "rarity": "basic"
+    "rarity": "basic",
+    "isGray": false
   },
   {
     "id": 4,
@@ -62,7 +66,8 @@
     "multiplier": 3.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "advanced"
+    "rarity": "advanced",
+    "isGray": false
   },
   {
     "id": 5,
@@ -75,7 +80,8 @@
     "multiplier": 0.15,
     "area": "cps",
     "type": "recipe",
-    "rarity": "basic"
+    "rarity": "basic",
+    "isGray": false
   },
   {
     "id": 6,
@@ -88,7 +94,8 @@
     "multiplier": 4.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
     "id": 7,
@@ -101,7 +108,8 @@
     "multiplier": 0.12,
     "area": "cps",
     "type": "recipe",
-    "rarity": "intermediate"
+    "rarity": "intermediate",
+    "isGray": false
   },
   {
     "id": 8,
@@ -114,7 +122,8 @@
     "multiplier": 5.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "legendary"
+    "rarity": "legendary",
+    "isGray": false
   },
   {
     "id": 9,
@@ -127,7 +136,8 @@
     "multiplier": 0.01,
     "area": "clickValue",
     "type": "special",
-    "rarity": "special"
+    "rarity": "special",
+    "isGray": false
   },
   {
     "id": 10,
@@ -140,7 +150,8 @@
     "multiplier": 0.08,
     "area": "cps",
     "type": "recipe",
-    "rarity": "basic"
+    "rarity": "basic",
+    "isGray": false
   },
   {
     "id": 11,
@@ -153,7 +164,8 @@
     "multiplier": 6.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "legendary"
+    "rarity": "legendary",
+    "isGray": false
   },
   {
     "id": 12,
@@ -166,7 +178,8 @@
     "multiplier": 0.2,
     "area": "cps",
     "type": "recipe",
-    "rarity": "intermediate"
+    "rarity": "intermediate",
+    "isGray": false
   },
   {
     "id": 13,
@@ -179,7 +192,8 @@
     "multiplier": 7.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "legendary"
+    "rarity": "legendary",
+    "isGray": false
   },
   {
     "id": 14,
@@ -192,7 +206,8 @@
     "multiplier": 0.25,
     "area": "cps",
     "type": "recipe",
-    "rarity": "intermediate"
+    "rarity": "intermediate",
+    "isGray": false
   },
   {
     "id": 15,
@@ -205,7 +220,8 @@
     "multiplier": 8.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "ultimate"
+    "rarity": "ultimate",
+    "isGray": false
   },
   {
     "id": 16,
@@ -218,7 +234,8 @@
     "multiplier": 0.1,
     "area": "cps",
     "type": "recipe",
-    "rarity": "intermediate"
+    "rarity": "intermediate",
+    "isGray": false
   },
   {
     "id": 17,
@@ -231,10 +248,11 @@
     "area": "clickValue",
     "type": "cursor",
     "rarity": "ultimate",
-    "price": 2250100100
+    "price": 2250100100,
+    "isGray": false
   },
   {
-    "id": 19,
+    "id": 18,
     "name": "Stellar Cursor",
     "effect": "x10.0 Click Value",
     "description": "Clicks powered by the stars.",
@@ -244,7 +262,8 @@
     "multiplier": 10.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "ultimate"
+    "rarity": "ultimate",
+    "isGray": false
   },
   {
     "id": 19,
@@ -257,7 +276,8 @@
     "multiplier": 0.15,
     "area": "cps",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
     "id": 20,
@@ -270,7 +290,8 @@
     "multiplier": 0.1,
     "area": "cps",
     "type": "recipe",
-    "rarity": "advanced"
+    "rarity": "advanced",
+    "isGray": false
   },
   {
     "id": 21,
@@ -283,7 +304,8 @@
     "multiplier": 12.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "ultimate"
+    "rarity": "ultimate",
+    "isGray": false
   },
   {
     "id": 22,
@@ -296,7 +318,8 @@
     "multiplier": 0.02,
     "area": "clickValue",
     "type": "special",
-    "rarity": "special"
+    "rarity": "special",
+    "isGray": false
   },
   {
     "id": 23,
@@ -309,7 +332,8 @@
     "multiplier": 0.2,
     "area": "cps",
     "type": "recipe",
-    "rarity": "advanced"
+    "rarity": "advanced",
+    "isGray": false
   },
   {
     "id": 24,
@@ -322,7 +346,8 @@
     "multiplier": 14.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "ultimate"
+    "rarity": "ultimate",
+    "isGray": false
   },
   {
     "id": 25,
@@ -335,7 +360,8 @@
     "multiplier": 0.1,
     "area": "cps",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
     "id": 26,
@@ -348,7 +374,8 @@
     "multiplier": 16.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "ultimate"
+    "rarity": "ultimate",
+    "isGray": false
   },
   {
     "id": 27,
@@ -361,7 +388,8 @@
     "multiplier": 0.08,
     "area": "cps",
     "type": "recipe",
-    "rarity": "advanced"
+    "rarity": "advanced",
+    "isGray": false
   },
   {
     "id": 28,
@@ -374,7 +402,8 @@
     "multiplier": 20.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "ultimate"
+    "rarity": "ultimate",
+    "isGray": false
   },
   {
     "id": 29,
@@ -387,10 +416,11 @@
     "multiplier": 0.1,
     "area": "cps",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
-    "id": 31,
+    "id": 30,
     "name": "Pumpkin Spice Cookies",
     "effect": "+12% CPS",
     "description": "The taste of autumn in every bite.",
@@ -400,7 +430,8 @@
     "multiplier": 0.12,
     "area": "cps",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
     "id": 31,
@@ -413,7 +444,8 @@
     "multiplier": 0.03,
     "area": "clickValue",
     "type": "special",
-    "rarity": "special"
+    "rarity": "special",
+    "isGray": false
   },
   {
     "id": 32,
@@ -426,7 +458,8 @@
     "multiplier": 0.1,
     "area": "cps",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
     "id": 33,
@@ -439,7 +472,8 @@
     "multiplier": 0.15,
     "area": "cps",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
     "id": 34,
@@ -452,7 +486,8 @@
     "multiplier": 0.08,
     "area": "cps",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   },
   {
     "id": 35,
@@ -465,7 +500,8 @@
     "multiplier": 25.0,
     "area": "clickValue",
     "type": "cursor",
-    "rarity": "mythic"
+    "rarity": "mythic",
+    "isGray": false
   },
   {
     "id": 36,
@@ -478,7 +514,8 @@
     "multiplier": 0.12,
     "area": "cps",
     "type": "recipe",
-    "rarity": "advanced"
+    "rarity": "advanced",
+    "isGray": false
   },
   {
     "id": 37,
@@ -491,6 +528,7 @@
     "multiplier": 1.2,
     "area": "clickValue",
     "type": "recipe",
-    "rarity": "expert"
+    "rarity": "expert",
+    "isGray": false
   }
 ]
