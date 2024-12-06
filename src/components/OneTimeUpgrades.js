@@ -6,6 +6,7 @@ function OneTimeUpgrades({
   setCookies,
   setCPSMultiplier,
   setClickValueMultiplier,
+  formatCurrency,
 }) {
   const [upgrades, setUpgrades] = useState([]);
   const [disabledButtons, setDisabledButtons] = useState([]); // Track temporarily disabled buttons
@@ -61,9 +62,6 @@ function OneTimeUpgrades({
   return (
     <>
       <div className={styles.withLabel}>
-        <p style={{ fontWeight: 600, marginTop: 5, marginLeft: 5 }}>
-          One time upgrades:
-        </p>
         <div className={styles.oneTimeUpgrades}>
           {displayUpgrades.map((upgrade, index) =>
             upgrade ? (
@@ -97,7 +95,9 @@ function OneTimeUpgrades({
         <div className={styles.infoBox}>
           <h3>{hoveredUpgrade.name}</h3>
           <h6 className={styles.type}>{hoveredUpgrade.type}</h6>
-          <p className={styles.price}>Price: {hoveredUpgrade.price} cookies</p>
+          <p className={styles.price}>
+            Price: {formatCurrency(hoveredUpgrade.price)} cookies
+          </p>
           <p className={styles.effect}>Effect: {hoveredUpgrade.effect}</p>
           <p className={styles.description}>{hoveredUpgrade.description}</p>
         </div>

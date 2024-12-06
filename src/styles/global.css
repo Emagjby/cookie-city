@@ -21,6 +21,7 @@ h1 {
 
 .section {
   border: 1px solid black;
+  background-color: #121212;
 }
 
 h1#Shop {

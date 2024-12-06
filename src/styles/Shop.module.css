@@ -2,12 +2,13 @@
 .cpsUpgrades {
   width: 100%;
   height: 80%;
-  background-color: #f0f0f0;
+  background-color: #121212;
   overflow-y: auto;
 }
 
 .withLabel {
-  background-color: #d9d9d9;
+  background-color: #121212;
+  color: #fff;
   border-top: 0.5vh solid black;
   border-bottom: 0.5vh solid black;
   padding-bottom: 0.5vh;
@@ -17,7 +18,7 @@
 .oneTimeUpgrades {
   display: flex;
   justify-content: space-between;
-  margin: 0 1vw;
+  margin: 1vw 1vw;
   padding-bottom: 1vh;
   overflow-y: none;
 }
@@ -65,7 +66,7 @@
   margin: 1vh;
   padding: 1vh;
   border-radius: 1vw;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   width: 12.5vw;
   aspect-ratio: 1/1;
 }
@@ -86,6 +87,10 @@
   background-color: rgb(255, 0, 0);
   cursor: not-allowed;
   animation: bounce 0.5s;
+}
+
+.CPSUpgrade.recentlyUpgraded {
+  animation: glow 0.35s;
 }
 
 .CPSUpgrade:hover {
@@ -119,6 +124,7 @@
   box-shadow: 0 1vh 5vh rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.2s ease-out;
   pointer-events: none;
+  text-align: center;
 }
 
 .infoBox h3 {
@@ -130,9 +136,8 @@
 }
 
 .infoBox .type {
-  margin-top: 0;
-  margin-left: 45%;
   display: inline-block;
+  margin-top: 0;
   font-weight: bold;
   padding: 0.5vh 1vh;
   color: black;
@@ -181,7 +186,7 @@
   pointer-events: none;
 }
 
-.infoBoxCPS .nameAndPrice {
+.nameAndPrice {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -253,5 +258,17 @@
   }
   100% {
     transform: translateX(0px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 255, 0, 0);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.75);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 255, 0, 0);
   }
 }

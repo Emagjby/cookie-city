@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Shop.module.css';
+import { format } from 'prettier';
 
-function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
+function CPSUpgrades({
+  cookies,
+  setCookies,
+  CPSMultiplier,
+  setCPS,
+  formatCurrency,
+}) {
   const [upgrades, setUpgrades] = useState([]);
   const [hoveredUpgrade, setHoveredUpgrade] = useState(null); // to track hovered upgrade
   const [disabledButtons, setDisabledButtons] = useState([]); // Track temporarily disabled buttons
+  const [recentlyUpgraded, setRecentlyUpgraded] = useState([]); // Track recently upgraded upgrades
 
   const calculateUpgradePrice = (basePrice, owned) => {
     return Math.floor(basePrice * Math.pow(1.1, owned));
@@ -43,6 +51,8 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
           owned: hoveredUpgrade.owned + 1,
         });
       }
+
+      handleBoughtItem(id);
     } else {
       console.log('Needs ' + (price - cookies) + ' more cookies to buy');
       handleInvalidClick(upgrade.id);
@@ -51,9 +61,18 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
 
   const handleInvalidClick = (id) => {
     setDisabledButtons((prev) => [...prev, id]); // Disable the button temporarily
+
     setTimeout(() => {
       setDisabledButtons((prev) => prev.filter((btnId) => btnId !== id)); // Re-enable after 1.5s
     }, 500);
+  };
+
+  const handleBoughtItem = (id) => {
+    setRecentlyUpgraded((prev) => [...prev, id]); // Add the ID to the recentlyUpgraded array
+
+    setTimeout(() => {
+      setRecentlyUpgraded((prev) => prev.filter((btnId) => btnId !== id));
+    }, 350);
   };
 
   const calculateTotalCPS = () => {
@@ -115,7 +134,11 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
               id="clickable"
               key={upgrade.id}
               className={`${styles.CPSUpgrade} ${
-                disabledButtons.includes(upgrade.id) ? styles.disabled : ''
+                disabledButtons.includes(upgrade.id)
+                  ? styles.disabled
+                  : recentlyUpgraded.includes(upgrade.id)
+                    ? styles.recentlyUpgraded
+                    : ''
               }`}
               onClick={() => {
                 if (upgrade.name !== '???' && !upgrade.isGray) {
@@ -127,22 +150,44 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
               onMouseEnter={() => setHoveredUpgrade(upgrade)}
               onMouseLeave={() => setHoveredUpgrade(null)}
               style={{
-                cursor: upgrade.name === '???' ? 'not-allowed' : 'pointer',
+                cursor:
+                  upgrade.name === '???'
+                    ? 'not-allowed'
+                    : upgrade.isGray
+                      ? 'not-allowed'
+                      : 'pointer',
                 backgroundColor:
                   upgrade.name !== '???'
                     ? disabledButtons.includes(upgrade.id)
                       ? null
                       : upgrade.isGray
-                        ? 'rgba(0, 0, 0, 0.5)'
-                        : 'rgba(44, 62, 80, 0.95)'
+                        ? 'rgba(255, 255, 255, 0.5)'
+                        : recentlyUpgraded.includes(upgrade.id)
+                          ? null
+                          : 'rgba(44, 62, 80, 0.95)'
                     : disabledButtons.includes(upgrade.id)
                       ? null
-                      : 'rgba(0, 0, 0, 0.5)',
+                      : 'rgba(255, 255, 255, 0.5)',
+                color:
+                  upgrade.name !== '???'
+                    ? disabledButtons.includes(upgrade.id)
+                      ? null
+                      : upgrade.isGray
+                        ? 'rgba(0, 0, 0, 1)'
+                        : 'rgba(255, 255, 255, 1)'
+                    : disabledButtons.includes(upgrade.id)
+                      ? null
+                      : recentlyUpgraded.includes(upgrade.id)
+                        ? null
+                        : 'rgba(0, 0, 0, 1)',
               }}
             >
               <h2>{upgrade.name}</h2>
               <p>
-                Price: {calculateUpgradePrice(upgrade.basePrice, upgrade.owned)}
+                Price:{' '}
+                {formatCurrency(
+                  calculateUpgradePrice(upgrade.basePrice, upgrade.owned)
+                )}
               </p>
             </div>
           ))
@@ -156,7 +201,7 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
             <h3>{hoveredUpgrade.name}</h3>
             <p className={styles.price}>
               Price:{' '}
-              {Math.floor(
+              {formatCurrency(
                 calculateUpgradePrice(
                   hoveredUpgrade.basePrice,
                   hoveredUpgrade.owned
@@ -169,8 +214,10 @@ function CPSUpgrades({ cookies, setCookies, CPSMultiplier, setCPS }) {
             <p className={styles.effect}>
               <strong>Each</strong> {hoveredUpgrade.name} produces{' '}
               <strong>
-                {Math.floor(hoveredUpgrade.baseCPSGain * CPSMultiplier)} Cookies
-                per second
+                {formatCurrency(
+                  Math.floor(hoveredUpgrade.baseCPSGain * CPSMultiplier)
+                )}{' '}
+                Cookies per second
               </strong>
               <br />
               {hoveredUpgrade.owned !== 0 && (

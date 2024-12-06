@@ -5,6 +5,7 @@ import { PresentationalFloatingTexts } from './components/FloatingText';
 import CookieManager from './utils/CookieManager';
 import CPSUpgrades from './components/CPSUpgrades';
 import OneTimeUpgrades from './components/OneTimeUpgrades';
+import { format } from 'prettier';
 
 function App() {
   const [cookies, setCookies] = useState(0);
@@ -56,12 +57,14 @@ function App() {
           setCookies={setCookies}
           setCPSMultiplier={setCPSMultiplier}
           setClickValueMultiplier={setClickValueMultiplier}
+          formatCurrency={CookieManager.formatCurrency}
         />
         <CPSUpgrades
           cookies={cookies}
           setCookies={setCookies}
           CPSMultiplier={CPSMultiplier}
           setCPS={setCPS}
+          formatCurrency={CookieManager.formatCurrency}
         />
       </div>
       <div className="navbar"></div>
